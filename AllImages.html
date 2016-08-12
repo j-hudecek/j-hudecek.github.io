@@ -3,6 +3,17 @@
 <head>
     <title></title>
 	<meta charset="utf-8" />
+    <style>
+        table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
     <script  type="text/javascript">
         $(document).ready(function () {
@@ -70,7 +81,6 @@
 { sampleid:136728, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470669102609.3"},
 { sampleid:136729, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470669171230.3"},
 { sampleid:136730, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470669275339.3"},
-{ sampleid:138767, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670410011.3"},
 { sampleid:136731, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470669369235.3"},
 { sampleid:136732, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470669483780.3"},
 { sampleid:136733, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470669532227.3"},
@@ -82,6 +92,7 @@
 { sampleid:136739, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670090146.3"},
 { sampleid:136740, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670203277.3"},
 { sampleid:138766, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670277232.3"},
+{ sampleid:138767, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670410011.3"},
 { sampleid:138768, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670517397.3"},
 { sampleid:138769, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670597316.3"},
 { sampleid:138770, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470670642676.3"},
@@ -116,7 +127,7 @@
 { sampleid:138800, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470673170317.3"},
 { sampleid:138802, imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470673223985.3"}]
             for (var i = 0; i < db.length; i++) {
-                var row = $('<tr><td><a href="' + formurl.replace('@slideid', db[i].sampleid) + '">Link</a></td>');
+                var row = $('<tr><td>' + (i+1) + '</td><td>' + db[i].sampleid + '</td><td><a href="' + formurl.replace('@slideid', db[i].sampleid) + '">Link</a></td><td><a href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
                 table.append(row);
             }
         });
@@ -126,7 +137,10 @@
     <table>
         <thead>
             <tr>
-                <td>Scoring forms</td>
+                <td>#</td>
+                <td>ID</td>
+                <td>Scoring form</td>
+                <td>Image</td>
             </tr>
         </thead>
         <tbody>
