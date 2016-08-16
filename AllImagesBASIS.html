@@ -278,8 +278,14 @@ td, th {
 { sampleid:'PD9844', imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470338591878.3"},
 { sampleid:'PD9845', imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470339418054.3"},
 { sampleid:'PD9847', imageid : "1.3.46.670589.45.1.1.118986034794496.1.4876.1470340000701.3"}]
-            for (var i = 0; i < db.length; i++) {
-                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid) + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
+			var lastSampleId = "";
+			var j=1;
+            for (var i = 0; i < db.length; i++, j++) {
+                var row = $('<tr><td>' + j + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid) + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
+			    if (i != db.length - 1 && db[i+1].sampleid == db[i].sampleid) {
+					row.append($('<td><a  target="_blank" href="' + imageurl.replace('@id', db[i+1].imageid) + '">Alternative Image</a></td>'));
+					i++;
+				}
                 table.append(row);
             }
         });
