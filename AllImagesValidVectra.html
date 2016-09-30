@@ -160,6 +160,7 @@ td, th {
 { sampleid:"pat4", imageid:"197"},
 { sampleid:"pat4", imageid:"198"},
 { sampleid:"pat4", imageid:"199"}
+
     ]
             for (var i = 0; i < db.length; i++) {
                 var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@imageid', db[i].imageid) + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@imageid', db[i].imageid).replace('@sampleid', db[i].sampleid) + '">Image</a></td>');
