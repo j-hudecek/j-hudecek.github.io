@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+    <script  type="text/javascript">
+        $(document).ready(function () {
+            var table = $("tbody");
+            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLScNgxWdHc_7CdjUZp-tOhwSb4pd16_KjN2ib0GtsxEtptz2aA/viewform?entry.781800812=@imageid";
+            var imageurl = "http://tutim.nki.nl/Image/Get/@sampleid?imageid=@imageid";
+            var db = [{ sampleid:"pat1", imageid:"60"},
+{ sampleid:"pat1", imageid:"61"},
+{ sampleid:"pat1", imageid:"62"},
+{ sampleid:"pat1", imageid:"63"},
+{ sampleid:"pat1", imageid:"64"},
+{ sampleid:"pat1", imageid:"65"},
+{ sampleid:"pat1", imageid:"66"},
+{ sampleid:"pat1", imageid:"67"},
+{ sampleid:"pat1", imageid:"68"},
+{ sampleid:"pat1", imageid:"69"},
+{ sampleid:"pat1", imageid:"70"},
+{ sampleid:"pat1", imageid:"71"},
+{ sampleid:"pat1", imageid:"72"},
+{ sampleid:"pat1", imageid:"73"},
+{ sampleid:"pat1", imageid:"74"},
+{ sampleid:"pat1", imageid:"75"},
+{ sampleid:"pat1", imageid:"76"},
+{ sampleid:"pat1", imageid:"77"},
+{ sampleid:"pat1", imageid:"78"},
+{ sampleid:"pat1", imageid:"79"},
+{ sampleid:"pat1", imageid:"80"},
+{ sampleid:"pat1", imageid:"81"},
+{ sampleid:"pat1", imageid:"82"},
+{ sampleid:"pat1", imageid:"83"},
+{ sampleid:"pat1", imageid:"84"},
+{ sampleid:"pat1", imageid:"85"},
+{ sampleid:"pat1", imageid:"86"},
+{ sampleid:"pat1", imageid:"87"},
+{ sampleid:"pat1", imageid:"88"},
+{ sampleid:"pat1", imageid:"89"},
+{ sampleid:"pat1", imageid:"90"},
+{ sampleid:"pat1", imageid:"91"},
+{ sampleid:"pat1", imageid:"92"},
+{ sampleid:"pat1", imageid:"93"},
+{ sampleid:"pat1", imageid:"94"},
+{ sampleid:"pat2", imageid:"95"},
+{ sampleid:"pat2", imageid:"96"},
+{ sampleid:"pat2", imageid:"97"},
+{ sampleid:"pat2", imageid:"98"},
+{ sampleid:"pat2", imageid:"99"},
+{ sampleid:"pat2", imageid:"100"},
+{ sampleid:"pat2", imageid:"101"},
+{ sampleid:"pat2", imageid:"102"},
+{ sampleid:"pat2", imageid:"103"},
+{ sampleid:"pat2", imageid:"104"},
+{ sampleid:"pat2", imageid:"105"},
+{ sampleid:"pat2", imageid:"106"},
+{ sampleid:"pat2", imageid:"107"},
+{ sampleid:"pat2", imageid:"108"},
+{ sampleid:"pat2", imageid:"109"},
+{ sampleid:"pat2", imageid:"110"},
+{ sampleid:"pat2", imageid:"111"},
+{ sampleid:"pat2", imageid:"112"},
+{ sampleid:"pat2", imageid:"113"},
+{ sampleid:"pat2", imageid:"114"},
+{ sampleid:"pat2", imageid:"115"},
+{ sampleid:"pat2", imageid:"116"},
+{ sampleid:"pat2", imageid:"117"},
+{ sampleid:"pat2", imageid:"118"},
+{ sampleid:"pat2", imageid:"119"},
+{ sampleid:"pat2", imageid:"120"},
+{ sampleid:"pat2", imageid:"121"},
+{ sampleid:"pat2", imageid:"122"},
+{ sampleid:"pat2", imageid:"123"},
+{ sampleid:"pat2", imageid:"124"},
+{ sampleid:"pat2", imageid:"125"},
+{ sampleid:"pat2", imageid:"126"},
+{ sampleid:"pat2", imageid:"127"},
+{ sampleid:"pat2", imageid:"128"},
+{ sampleid:"pat2", imageid:"129"},
+{ sampleid:"pat3", imageid:"130"},
+{ sampleid:"pat3", imageid:"131"},
+{ sampleid:"pat3", imageid:"132"},
+{ sampleid:"pat3", imageid:"133"},
+{ sampleid:"pat3", imageid:"134"},
+{ sampleid:"pat3", imageid:"135"},
+{ sampleid:"pat3", imageid:"136"},
+{ sampleid:"pat3", imageid:"137"},
+{ sampleid:"pat3", imageid:"138"},
+{ sampleid:"pat3", imageid:"139"},
+{ sampleid:"pat3", imageid:"140"},
+{ sampleid:"pat3", imageid:"141"},
+{ sampleid:"pat3", imageid:"142"},
+{ sampleid:"pat3", imageid:"143"},
+{ sampleid:"pat3", imageid:"144"},
+{ sampleid:"pat3", imageid:"145"},
+{ sampleid:"pat3", imageid:"146"},
+{ sampleid:"pat3", imageid:"147"},
+{ sampleid:"pat3", imageid:"148"},
+{ sampleid:"pat3", imageid:"149"},
+{ sampleid:"pat3", imageid:"150"},
+{ sampleid:"pat3", imageid:"151"},
+{ sampleid:"pat3", imageid:"152"},
+{ sampleid:"pat3", imageid:"153"},
+{ sampleid:"pat3", imageid:"154"},
+{ sampleid:"pat3", imageid:"155"},
+{ sampleid:"pat3", imageid:"156"},
+{ sampleid:"pat3", imageid:"157"},
+{ sampleid:"pat3", imageid:"158"},
+{ sampleid:"pat3", imageid:"159"},
+{ sampleid:"pat3", imageid:"160"},
+{ sampleid:"pat3", imageid:"161"},
+{ sampleid:"pat3", imageid:"162"},
+{ sampleid:"pat3", imageid:"163"},
+{ sampleid:"pat3", imageid:"164"},
+{ sampleid:"pat4", imageid:"165"},
+{ sampleid:"pat4", imageid:"166"},
+{ sampleid:"pat4", imageid:"167"},
+{ sampleid:"pat4", imageid:"168"},
+{ sampleid:"pat4", imageid:"169"},
+{ sampleid:"pat4", imageid:"170"},
+{ sampleid:"pat4", imageid:"171"},
+{ sampleid:"pat4", imageid:"172"},
+{ sampleid:"pat4", imageid:"173"},
+{ sampleid:"pat4", imageid:"174"},
+{ sampleid:"pat4", imageid:"175"},
+{ sampleid:"pat4", imageid:"176"},
+{ sampleid:"pat4", imageid:"177"},
+{ sampleid:"pat4", imageid:"178"},
+{ sampleid:"pat4", imageid:"179"},
+{ sampleid:"pat4", imageid:"180"},
+{ sampleid:"pat4", imageid:"181"},
+{ sampleid:"pat4", imageid:"182"},
+{ sampleid:"pat4", imageid:"183"},
+{ sampleid:"pat4", imageid:"184"},
+{ sampleid:"pat4", imageid:"185"},
+{ sampleid:"pat4", imageid:"186"},
+{ sampleid:"pat4", imageid:"187"},
+{ sampleid:"pat4", imageid:"188"},
+{ sampleid:"pat4", imageid:"189"},
+{ sampleid:"pat4", imageid:"190"},
+{ sampleid:"pat4", imageid:"191"},
+{ sampleid:"pat4", imageid:"192"},
+{ sampleid:"pat4", imageid:"193"},
+{ sampleid:"pat4", imageid:"194"},
+{ sampleid:"pat4", imageid:"195"},
+{ sampleid:"pat4", imageid:"196"},
+{ sampleid:"pat4", imageid:"197"},
+{ sampleid:"pat4", imageid:"198"},
+{ sampleid:"pat4", imageid:"199"}
+    ]
+            for (var i = 0; i < db.length; i++) {
+                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@imageid', db[i].imageid) + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@imageid', db[i].imageid).replace('@sampleid', db[i].sampleid) + '">Image</a></td>');
+                table.append(row);
+            }
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>ID</td>
+                <td>Scoring form</td>
+                <td>Image</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
