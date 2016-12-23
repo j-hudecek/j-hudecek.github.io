@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+    <script  type="text/javascript">
+        $(document).ready(function () {
+            var table = $("tbody"); 
+            var formurl = "https://docs.google.com/spreadsheets/d/@formid/edit";
+            var imageurl = "https://tepis.ctmm-trait.nl:443/ImsClient?images=@id&topleft=-17.221796608,-4.654527632&bottomright=38.632731392,26.298189968(tepis.ctmm-trait.nl)";
+			var pathologists = ["Hugo", "Dilara"];
+            var db=[{ filename:'FABIEN8', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422189829.3', idforHugo:'1W_3uWSkAPV0OPOXCFb4Uydz4l2832yn3NUsIO61q1Cs', idforDilara: '1XgR5TrsHxBKlDeanoA87UJKgVKA53VgMhzDm1X6fRyA'},
+{ filename:'FABIEN1', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482421934375.3', idforHugo:'1R0a6JcU9Xx-FOU1BMnhLq8pj6pbam121KoEonCxnNa0', idforDilara: '1dWEgUKeOX3dxdTHDzM6aF-mM3IqbxNwYtuss5HIrTJE'},
+{ filename:'FABIEN6', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422161963.3', idforHugo:'1w-P3l4lufjYIT0gt-h4Aef6J5o_-qq8ws0lrsFF-K4A', idforDilara: '1Pmo9E3o_S3jkpQVQCExp5WlLPc7mk-Qx_dZSF6rKGMw'},
+{ filename:'FABIEN2', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482421984640.3', idforHugo:'1UjcexHTQi8RCknaWcwz0WOhXWjLoZqCkQW62MKrBwi4', idforDilara: '16b-fOtKgUsutJwdkBn32XlZqNud9uVUUPxpg58iGr5k'},
+{ filename:'FABIEN7', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422119770.2', idforHugo:'1eO1w_EbvR0GRHCWRv6c9-DOkWqAwFRCTkhixcFmZvFs', idforDilara: '1MfLmUpzPgFGxmrbimrXJv8xvofd6XIRpCTEFypK0NRo'},
+{ filename:'FABIEN4', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422025837.3', idforHugo:'1JS_3r085omsmugaCmp2yv2D45xnOFAXz72VaxPV3Pmw', idforDilara: '1BLoreSbBYL9bxpooO7Ib6gGTgISvv59UvG0o9ifIgA4'},
+{ filename:'FABIEN5', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422068687.3', idforHugo:'1vkWMSEnPNMjElVuBAELzaR5Lt4dQYbAg0l0nxe-Vk1I', idforDilara: '1tHzEW3HZx90d9n2RqrsKtdLF-0ZDJ4vG68mKsGJLNOE'},
+];
+			
+			for (var ip=0;ip<pathologists.length;ip++) {
+				$(".tableheader").append($('<td class="tdforpathologist tdfor'+pathologists[ip]+'">Link for '+pathologists[ip]+'</td>'));
+				$("#cmbPathologists").append($('<option>'+pathologists[ip]+'</option>'));
+			}	
+			
+			var lastSampleId = "";
+			var j=1;
+            for (var i = 0; i < db.length; i++, j++) {
+			    var rowstring = '<tr><td>' + j + '</td><td>' + db[i].filename + '</td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].tepisid) + '">Image</a></td>';
+				for (var ip=0;ip<pathologists.length;ip++) {
+					rowstring +='<td class="tdforpathologist tdfor'+pathologists[ip]+'"><a target="_blank" href="' + formurl.replace('@formid', db[i]["idfor"+pathologists[ip]]) + '">Scoring sheet for '+pathologists[ip]+'</a></td>'
+				}
+				rowstring += '</tr>';	
+                var row = $(rowstring);
+                table.append(row);
+            }
+			$("#cmbPathologists").on('change', function() {
+				if ($("#cmbPathologists").val() == "All pathologists") {
+					$(".tdforpathologist").show();
+				} else {
+					$(".tdforpathologist").hide();
+					$(".tdfor"+$("#cmbPathologists").val()).show();
+				}
+			});
+        });
+    </script>
+</head>
+<body>
+<h1>AGCT scoring forms</h1>
+	Show links for
+    <select id="cmbPathologists">
+		<option>All pathologists</option>
+	</select>
+    <table>
+        <thead>
+            <tr class="tableheader">
+                <td>#</td>
+                <td>ID</td>
+                <td>Image</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
