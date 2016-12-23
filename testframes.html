@@ -1,0 +1,75 @@
+<html>
+<head>
+ <style>
+        table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.niceButton
+{
+font-size: larger;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+    <script  type="text/javascript">
+            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSfH9Cp91MqoRynxahFQJ3Q-nnaVUAbkUyxK9N03nuE-qe9X1w/viewform?entry.42606507=@sampleid&entry.1868728418=@userid&embedded=true";
+            var imageurl = "https://tepis.ctmm-trait.nl:443/ImsClient?images=@imageid&topleft=-17.221796608,-4.654527632&bottomright=38.632731392,26.298189968(tepis.ctmm-trait.nl)";
+			var pathologists = ["Hugo", "Emilie"];
+            var db=[
+{ filename:'case1', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422189829.3'},
+{ filename:'case2', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482421934375.3'},
+{ filename:'case3', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422161963.3'},
+{ filename:'case4', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482421984640.3'},
+{ filename:'case5', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422119770.2'},
+{ filename:'case6', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422025837.3'},
+{ filename:'case7', tepisid:'1.3.46.670589.45.1.1.118986034794496.1.4464.1482422068687.3'},
+];
+			var selectedi=0;
+
+	  function getURLParameter(name) {
+            return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
+        }
+		
+		function showImage(i) {
+			var d=db[i]
+			var start = new Date();
+			$("#ifrForms").on('load', function() { console.log("ready "+Math.abs(new Date()-start).toString());  });
+			$("#ifrForms").attr("src", formurl.replace("@sampleid", d.filename).replace("@userid", getURLParameter("pathologist")));
+			$("#ifrImage").attr("src", imageurl.replace("@imageid", d.tepisid));
+			
+		}
+	
+        $(document).ready(function () {
+            var table = $("tbody"); 
+			showImage(selectedi);
+			$("#btnNext").on('click', function() {
+				if (selectedi < db.length-1) {
+					selectedi +=1;
+					showImage(selectedi);
+				}
+			});
+			$("#btnPrev").on('click', function() {
+				if (selectedi > 0) {
+					selectedi -=1;
+					showImage(selectedi);
+				}
+			});
+			$("#ifrImage").css('width', ($("body")[0].getBoundingClientRect().width - 260).toString()+"px")
+        });
+    </script>
+<body style="position:relative">
+<div style="position:fixed; top:0px; left:0px; height: 50px; width:100vw;">
+Emilie's study. Please use these buttons to move between cases. Don't forget to press Submit on the score form before moving to the next case:
+<input type="button" value="Previous" id="btnPrev" class="niceButton"/>
+<input type="button" value="Next" id="btnNext" class="niceButton"/>
+</div>
+ <iframe id="ifrForms" src="" style="position:fixed; top:50px; left:0px; bottom:0px; right:0px; width:300px; height:100%; border:none; margin:0; padding:0; overflow:hidden;" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+ <iframe id="ifrImage" src="" style="position:fixed; top:50px; left:300px; bottom:0px; right:0px; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+<body>
+
