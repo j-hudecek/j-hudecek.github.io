@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>N4Plus batch 3</title>
+    <title>TONIC</title>
 	<meta charset="utf-8" />
     <style>
         table {
@@ -18,7 +18,7 @@ td, th {
     <script  type="text/javascript">
         $(document).ready(function () {
             var table = $("tbody");
-            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSfjkfYx32UZ_i-Hkju1fPjUzoblFVeVirzglXnGFr5kM3y4dQ/viewform?usp=pp_url&entry.538301442=@slideid";
+            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSfjkfYx32UZ_i-Hkju1fPjUzoblFVeVirzglXnGFr5kM3y4dQ/viewform?usp=pp_url&entry.538301442=@slideid&entry.52989686=@path&entry.1219709569&entry.132055454&entry.706070409&entry.1962248246";
             var imageurl = "https://tepis.ctmm-trait.nl:443/ImsClient?images=@id&topleft=-17.221796608,-4.654527632&bottomright=38.632731392,26.298189968(tepis.ctmm-trait.nl)";
             var db = [
       {fileid:'MM_T17-00926_HE', sampleid:'MM_T17-00926_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4912.1500032191647.3'},
@@ -208,7 +208,7 @@ td, th {
 
     ]
             for (var i = 0; i < db.length; i++) {
-                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid) + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
+                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','HH') + '">Link</a></td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','RS') + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
                 table.append(row);
             }
         });
@@ -220,7 +220,8 @@ td, th {
             <tr>
                 <td>#</td>
                 <td>ID</td>
-                <td>Scoring form</td>
+                <td>Scoring form for HH</td>
+                <td>Scoring form for RS</td>
                 <td>Image</td>
             </tr>
         </thead>
