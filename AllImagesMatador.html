@@ -19,7 +19,7 @@ td, th {
     <script  type="text/javascript">
         $(document).ready(function () {
             var table = $("tbody");
-            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSfczRhWeFbWJ9ghFrpXVQexr5Ad3EUY93SZhsKNK37uumHlEQ/viewform?usp=pp_url&entry.538301442=@slideid&entry.52989686=@path&entry.1219709569&entry.132055454&entry.706070409&entry.1962248246";
+            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSfN1eDjZSjz62iIKhN83AKMtL-hAIXmTDx_-hsnnxLaaHZNKw/viewform?usp=pp_url&entry.517498793=@slideid&entry.1152811165=@path&entry.1506871634&entry.827174305";
             var imageurl = "https://tepis.ctmm-trait.nl:443/ImsClient?images=@id(tepis.ctmm-trait.nl)";
             var db = [
 			
@@ -129,7 +129,7 @@ td, th {
 
     ]
             for (var i = 0; i < db.length; i++) {
-                var row = $('<tr><td>' + (i + 1) + '</td><td>'  + db[i].sampleid + '</td><td><a target="_blank" href="'/* + formurl.replace('@slideid', db[i].sampleid).replace('@path','HH') + '">Link</a></td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','RS') + '">Link</a></td><td><a  target="_blank" href="'*/ + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
+                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','HMH') + '">Link</a></td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','JS') + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
                 table.append(row);
             }
         });
@@ -141,8 +141,8 @@ td, th {
             <tr>
                 <td>#</td>
                 <td>ID</td>
-                <!--<td>Scoring form for HH</td>
-                <td>Scoring form for RS</td> -->
+                <td>Scoring form for HH</td>
+                <td>Scoring form for JS</td> 
                 <td>Image</td>
             </tr>
         </thead>
