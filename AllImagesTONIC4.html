@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>TONIC 3rd part</title>
+	<meta charset="utf-8" />
+    <style>
+        table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+    <script  type="text/javascript">
+        $(document).ready(function () {
+            var table = $("tbody");
+            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSfjkfYx32UZ_i-Hkju1fPjUzoblFVeVirzglXnGFr5kM3y4dQ/viewform?usp=pp_url&entry.538301442=@slideid&entry.52989686=@path&entry.1219709569&entry.132055454&entry.706070409&entry.1962248246";
+            var imageurl = "https://tepis.ctmm-trait.nl:443/ImsClient?images=@id&topleft=-17.221796608,-4.654527632&bottomright=38.632731392,26.298189968(tepis.ctmm-trait.nl)";
+            var db = [
+			
+		{fileid:'MM_T17-05618_HE', sampleid:'MM_T17-05618_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370173130.3'},
+{fileid:'MM_T17-06321_CD8', sampleid:'MM_T17-06321_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370192019.3'},
+{fileid:'MM_T17-05618_CD8', sampleid:'MM_T17-05618_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370220256.3'},
+{fileid:'MM_T17-06602_CD8', sampleid:'MM_T17-06602_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370230669.3'},
+{fileid:'MM_T17-06321_HE', sampleid:'MM_T17-06321_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370245952.3'},
+{fileid:'MM_T17-06602_HE', sampleid:'MM_T17-06602_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370258992.3'},
+{fileid:'MM_T17-05738_CD8', sampleid:'MM_T17-05738_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370269370.3'},
+{fileid:'MM_T17-05738_HE', sampleid:'MM_T17-05738_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370277164.2'},
+{fileid:'MM_T17-05482_HE', sampleid:'MM_T17-05482_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370286386.2'},
+{fileid:'MM_T17-05276_CD8', sampleid:'MM_T17-05276_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370297418.3'},
+{fileid:'MM_T17-05482_CD8', sampleid:'MM_T17-05482_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370311286.3'},
+{fileid:'MM_T17-05276_HE', sampleid:'MM_T17-05276_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370318155.3'},
+{fileid:'MM_T17-06824_HE', sampleid:'MM_T17-06824_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370333932.3'},
+{fileid:'MM_T17-06824_CD8', sampleid:'MM_T17-06824_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370352187.3'},
+{fileid:'MM_T17-05964_CD8', sampleid:'MM_T17-05964_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370357928.3'},
+{fileid:'MM_T17-05964_HE', sampleid:'MM_T17-05964_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370367437.3'},
+{fileid:'MM_T17-06278_CD8', sampleid:'MM_T17-06278_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370379989.3'},
+{fileid:'MM_T17-06278_HE', sampleid:'MM_T17-06278_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370388127.3'},
+{fileid:'MM_T17-06320_CD8', sampleid:'MM_T17-06320_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370402836.3'},
+{fileid:'MM_T17-07152_CD8', sampleid:'MM_T17-07152_CD9', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370418867.3'},
+{fileid:'MM_T17-06320_HE', sampleid:'MM_T17-06320_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370436314.3'},
+{fileid:'MM_T17-07152_HE', sampleid:'MM_T17-07152_HE', imageid:'1.3.46.670589.45.1.1.118986034794496.1.4612.1504370448449.3'},
+
+
+
+
+
+
+
+
+
+
+    ]
+            for (var i = 0; i < db.length; i++) {
+                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].sampleid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','HH') + '">Link</a></td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','RS') + '">Link</a></td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid).replace('@path','KvdV') + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
+                table.append(row);
+            }
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>ID</td>
+                <td>Scoring form for HH</td>
+                <td>Scoring form for RS</td>
+                <td>Scoring form for KvdV</td>
+                <td>Image</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
