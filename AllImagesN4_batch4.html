@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>N4Plus batch 4</title>
+	<meta charset="utf-8" />
+    <style>
+        table {
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+  text-align: left;
+}
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"> </script>
+    <script  type="text/javascript">
+        $(document).ready(function () {
+            var table = $("tbody");
+            var formurl = "https://docs.google.com/forms/d/e/1FAIpQLSeV9KrjqJaIVxz2vomFalvUxTYX5drRyp3Z9kF7FsU6x6hReg/viewform?entry.517498793=@slideid&entry.827174305";
+            var imageurl = "https://xtal.nki.nl/tutim/Image/Details?imageId=@id&studyId=14";
+            var db = [
+{fileid:'CF42 T16-60560 A1 #46 HE', sampleid:'46 ', imageid:'286'},
+{fileid:'CF42 T15-60764 A2 #3 HE', sampleid:'3  ', imageid:'287'},
+{fileid:'CF42 T14-61363 A2 #491 HE', sampleid:'491', imageid:'288'},
+{fileid:'CF42 T16-60551 A1 #228 HE', sampleid:'228', imageid:'289'},
+{fileid:'CF42 T15-60816 A4 #632 HE', sampleid:'632', imageid:'290'},
+{fileid:'CF42 T14-61352 A3 #233 HE', sampleid:'233', imageid:'291'},
+{fileid:'CF42 T15-60768 A2 #52 HE', sampleid:'52 ', imageid:'292'},
+{fileid:'CF42 T16-60555 A1 #135 HE', sampleid:'135', imageid:'293'},
+{fileid:'CF42 T16-60605 A7 #594 HE', sampleid:'594', imageid:'294'},
+{fileid:'CF42 T15-60773 A3 #104 HE', sampleid:'104', imageid:'295'},
+{fileid:'CF42 T16-60603 A8 #205 HE', sampleid:'205', imageid:'296'},
+{fileid:'CF42 T16-60520 A1 #384 HE', sampleid:'384', imageid:'297'},
+{fileid:'CF42 T16-60593 A1 #22 HE', sampleid:'22 ', imageid:'298'},
+{fileid:'CF42 T16-60606 A6 #831 HE', sampleid:'831', imageid:'299'},
+
+
+
+    ]
+            for (var i = 0; i < db.length; i++) {
+                var row = $('<tr><td>' + (i + 1) + '</td><td>' + db[i].fileid + '</td><td><a target="_blank" href="' + formurl.replace('@slideid', db[i].sampleid) + '">Link</a></td><td><a  target="_blank" href="' + imageurl.replace('@id', db[i].imageid) + '">Image</a></td>');
+                table.append(row);
+            }
+        });
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>ID</td>
+                <td>Scoring form</td>
+                <td>Image</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</body>
+</html>
